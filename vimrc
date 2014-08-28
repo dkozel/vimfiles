@@ -18,8 +18,11 @@ set backspace=indent,eol,start
 " Larger history storage
 set history=1000
 
-" Enalbe syntax highlighting
+" Enable syntax highlighting
 syntax on
+
+" Auto scroll to keep 6 lines below or above the cursor
+set scrolloff=6
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -29,9 +32,6 @@ set background=dark
 set t_Co=256
 color tir_black
 set cursorline
-
-" JQuery syntax support
-autocmd Syntax javascript set syntax=jquery
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -68,32 +68,10 @@ autocmd Syntax html,css,ruby,javascript,coffee set tabstop=2 shiftwidth=2 linesp
 " Indent guides (default toggle key is <leader>ig)
 let g:indent_guides_auto_colors=0
 let g:indent_guides_start_level=2 
+let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=242
-
-" NeoComplCache
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_smart_case=1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neosnippet#disable_runtime_snippets = { "_": 1, }
-autocmd Syntax html let g:neocomplcache_disable_auto_complete=1
-set completeopt-=preview
-
-" Snippet
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 if has('conceal')
   set conceallevel=2 concealcursor=i
@@ -101,12 +79,6 @@ endif
 
 " SuperTab
 let g:SuperTabDefaultCompletionType="<c-n>"
-
-" Zen-coding 
-let g:user_emmet_expandabbr_key='<c-j>'
-let g:user_emmet_settings={
-\    'indentation': '  ',
-\}
 
 " Nerd Tree 
 let NERDChristmasTree=1
@@ -119,6 +91,17 @@ let g:Tb_TabWrap = 1
 " Tagbar
 let g:tagbar_left=0
 let g:tagbar_width=30
+
+" Clang Complete
+let g:clang_library_path = "/usr/lib/llvm-3.5/lib"
+let g:clang_use_library = 1
+
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " Rainbow parentheses for Lisp and variants
 let g:rbpt_colorpairs = [
@@ -140,10 +123,7 @@ let g:rbpt_colorpairs = [
     \ [167, 167],
     \ ]
 let g:rbpt_max = 32
-autocmd Syntax lisp,scheme,clojure RainbowParenthesesToggle
-
-" Easymotion leader key
-let g:EasyMotion_leader_key = '<Leader>'
+autocmd Syntax lisp,scheme,clojure,c,cpp RainbowParenthesesToggle
 
 " Key mappings
 nmap <F4> :IndentGuidesToggle<cr>
@@ -158,8 +138,3 @@ command Q q
 command Qa qa
 command QA qa
 
-" Nginx syntax highlighting
-autocmd BufNew,BufRead,BufNewFile,BufEnter /etc/nginx/*,/usr/local/nginx/*,/usr/local/etc/nginx/* setfiletype nginx
-
-" Slim syntax highlighting
-autocmd BufNew,BufRead,BufNewFile,BufEnter *.slim setfiletype slim
