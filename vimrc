@@ -138,3 +138,16 @@ command Q q
 command Qa qa
 command QA qa
 
+" Remap arrows to assist in learning homerow based navigation
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+inoremap <esc> <nop>
+inoremap jk <esc>
