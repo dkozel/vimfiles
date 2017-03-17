@@ -24,6 +24,22 @@ syntax on
 " Auto scroll to keep 6 lines below or above the cursor
 set scrolloff=6
 
+" Allow toggling between relative and absolute line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+set relativenumber
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
