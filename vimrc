@@ -92,11 +92,6 @@ let g:Tb_TabWrap = 1
 let g:tagbar_left=0
 let g:tagbar_width=30
 
-" Clang Complete
-let g:clang_library_path = "/usr/lib/llvm-3.5/lib"
-let g:clang_use_library = 1
-
-
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
