@@ -1,5 +1,5 @@
 " Don't be compatible with vi
-set nocompatible 
+set nocompatible
 
 filetype off
 
@@ -52,7 +52,7 @@ set ignorecase      " Do case insensitive matching
 
 " Status
 set showcmd         " Show (partial) command in status line.
-set laststatus=2    " Always show status bar 
+set laststatus=2    " Always show status bar
 set ruler           " Show cursor position
 set number          " Show line number
 
@@ -60,14 +60,14 @@ set number          " Show line number
 set autoindent
 set expandtab
 set tabstop=4
-set shiftwidth=4 
+set shiftwidth=4
 set linespace=4
 
 autocmd Syntax html,css,ruby,javascript,coffee set tabstop=2 shiftwidth=2 linespace=2
 
 " Indent guides (default toggle key is <leader>ig)
 let g:indent_guides_auto_colors=0
-let g:indent_guides_start_level=2 
+let g:indent_guides_start_level=2
 let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_guide_size=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
@@ -80,7 +80,7 @@ endif
 " SuperTab
 let g:SuperTabDefaultCompletionType="<c-n>"
 
-" Nerd Tree 
+" Nerd Tree
 let NERDChristmasTree=1
 let NERDTreeWinSize=25
 
@@ -103,7 +103,7 @@ let g:clang_use_library = 1
 autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-" Rainbow parentheses for Lisp and variants
+" Rainbow parentheses for C/C++
 let g:rbpt_colorpairs = [
     \ [172, 172],
     \ [167, 167],
@@ -123,14 +123,14 @@ let g:rbpt_colorpairs = [
     \ [167, 167],
     \ ]
 let g:rbpt_max = 32
-autocmd Syntax lisp,scheme,clojure,c,cpp RainbowParenthesesToggle
+autocmd Syntax c,cpp RainbowParenthesesToggle
 
 " Key mappings
 nmap <F4> :IndentGuidesToggle<cr>
 nmap <F5> :NERDTreeToggle<cr>
 nmap <F6> :TagbarToggle<cr>
 
-" Extra commands 
+" Extra commands
 command W w
 command WQ wq
 command Wq wq
