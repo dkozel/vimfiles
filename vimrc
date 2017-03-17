@@ -163,5 +163,6 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Remap 'jk' to provide escape
 inoremap <esc> <nop>
 inoremap jk <esc>
