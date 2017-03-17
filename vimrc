@@ -136,6 +136,9 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 32
 autocmd Syntax c,cpp RainbowParenthesesToggle
 
+" Disable folding of math in Tex
+autocmd Filetype tex setlocal nofoldenable
+
 " Key mappings
 nmap <F4> :IndentGuidesToggle<cr>
 nmap <F5> :NERDTreeToggle<cr>
