@@ -170,3 +170,6 @@ imap <right> <nop>
 " Remap 'jk' to provide escape
 inoremap <esc> <nop>
 inoremap jk <esc>
+
+" Fix paste bug triggered by the above inoremaps
+set t_BE=
