@@ -40,6 +40,10 @@ set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
+" Enable Modeline support
+set modeline
+set modelines=5
+
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
