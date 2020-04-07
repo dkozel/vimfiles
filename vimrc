@@ -120,24 +120,12 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " Rainbow parentheses for C/C++
 let g:rbpt_colorpairs = [
-    \ [172, 172],
-    \ [167, 167],
-    \ [141, 141],
-    \ [39, 39],
-    \ [49, 49],
-    \ [82, 82],
-    \ [11, 11],
-    \ [172, 172],
-    \ [167, 167],
-    \ [141, 141],
-    \ [39, 39],
-    \ [49, 49],
-    \ [82, 82],
-    \ [11, 11],
-    \ [172, 172],
-    \ [167, 167],
+    \ ['149', 'DarkOliveGreen3'],
+    \ ['178', 'Gold3'],
+    \ ['117', 'SkyBlue1'],
+    \ ['210',  'LightCoral'],
     \ ]
-let g:rbpt_max = 32
+let g:rbpt_max = 4
 autocmd Syntax c,cpp RainbowParenthesesToggle
 
 " Disable folding of math in Tex
