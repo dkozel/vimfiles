@@ -1,6 +1,10 @@
 " Don't be compatible with vi
 set nocompatible
 
+" Handle focus events (new feature in Vim 8+)
+set t_FE=
+set t_FD=
+
 filetype off
 
 " Use Vundle to manage plugins
@@ -94,7 +98,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=242
 
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=0 concealcursor=i
 endif
 
 " SuperTab
@@ -145,19 +149,22 @@ command Qa qa
 command QA qa
 
 " Remap arrows to assist in learning homerow based navigation
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
+"
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
+"
 " Remap 'jk' to provide escape
-inoremap <esc> <nop>
+"inoremap <esc> <nop>
 inoremap jk <esc>
 
 " Fix paste bug triggered by the above inoremaps
 set t_BE=
+
+" Try fixing right click entering visual mode and entering text
+set mouse-=a
